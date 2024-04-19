@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
-const DisplayFriendCircle = ({ friends, loading, viewState }) => {
+const DisplayFriendCircle = ({
+  friends,
+  advice,
+  viewState,
+  nat,
+  natOptions,
+}) => {
+
   const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -23,11 +30,19 @@ const DisplayFriendCircle = ({ friends, loading, viewState }) => {
     background-color: grey;
   `;
 
+  const FullWidth = styled.div`
+    width: 100%;
+  `;
+
   return (
     <>
       {viewState === "results" && (
         <StyledWrapper>
-          {friends.map((friend, index) => (
+
+          <FullWidth>
+            <h1>Meet your new friends in {natOptions[nat]}!</h1>
+          </FullWidth>
+          {friends.results.map((friend, index) => (
             <div key={index}>
               <PictureFrame>
                 <img src={friend.picture.large} alt="headshot" />
@@ -42,6 +57,10 @@ const DisplayFriendCircle = ({ friends, loading, viewState }) => {
             <You></You>
             <p>You!</p>
           </div>
+          <FullWidth>
+            <p>Circle motto:</p>
+            <p>{advice.slip.advice}</p>
+          </FullWidth>
         </StyledWrapper>
       )}
     </>
