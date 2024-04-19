@@ -5,13 +5,13 @@ import SelectNat from "./assets/components/SelectNat";
 
 function App() {
   const [nat, setNat] = useState("au");
-  const { person, loading } = useData(`https://randomuser.me/api/?nat=${nat}`);
+  const { friends, loading } = useData(
+    `https://randomuser.me/api?nat=${nat}&results=3`);
   return (
     <>
       <SelectNat label="Where are you?" setNat={setNat} />
-      <PersonCard person={person} loading={loading}></PersonCard>
-    </>
-  );
-}
+      {loading && <div className="spin">Loading...</div>}
 
+    </>
+}
 export default App;
