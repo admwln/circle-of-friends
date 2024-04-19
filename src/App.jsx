@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useData } from "./assets/components/useData";
-import PersonCard from "./assets/components/PersonCard";
 import Start from "./assets/components/Start";
-import SelectNat from "./assets/components/SelectNat";
 import DisplayFriendCircle from "./assets/components/DisplayFriendCircle";
 import Loading from "./assets/components/Loading";
 
@@ -46,6 +44,7 @@ function App() {
         setViewState={setViewState}
         natOptions={natOptions}
       />
+      <Loading viewState={viewState} setViewState={setViewState} />
       <DisplayFriendCircle
         friends={friends}
         advice={advice}

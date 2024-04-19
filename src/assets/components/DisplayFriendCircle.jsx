@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Confetti from "./Confetti";
 const DisplayFriendCircle = ({
   friends,
   advice,
@@ -71,6 +72,7 @@ const DisplayFriendCircle = ({
     <>
       {viewState === "results" && (
         <StyledWrapper>
+          <Confetti />
           <FullWidth>
             <h1>Meet your new friends in {natOptions[nat]}!</h1>
           </FullWidth>
