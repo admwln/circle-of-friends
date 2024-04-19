@@ -8,7 +8,7 @@ const Confetti = () => {
     const confetti = new JSConfetti(confettiRef.current);
     confetti.addConfetti({
       confettiRadius: 5,
-      confettiNumber: 10,
+      confettiNumber: 5,
       confettiColors: [
         "#ff3838",
         "#ff9d00",

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/react";
+import { useEffect } from "react";
 
 const rotate = keyframes`
     0% {
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   height: 350px;
   width: 350px;
-  animation: ${rotate} 3s infinite linear;
+  animation: ${rotate} 2300ms infinite linear;
 `;
 const LoadingCircle = styled.div`
   position: absolute;
@@ -35,7 +36,25 @@ const SmallCircle = styled.div`
   border-radius: 100%;
 `;
 
-const Loading = ({ viewState }) => {
+const Loading = ({ viewState, setViewState }) => {
+  useEffect(() => {
+    // Check if the component is still mounted when the timeout completes
+    let isMounted = true;
+
+    if (viewState === "loading") {
+      const timeoutId = setTimeout(() => {
+        if (isMounted) {
+          setViewState("results");
+        }
+      }, 3000); // 3000 milliseconds = 3 seconds
+
+      // Cleanup function to clear the timeout if the component unmounts
+      return () => {
+        isMounted = false;
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [viewState, setViewState]);
   return (
     <>
       {viewState === "loading" && (

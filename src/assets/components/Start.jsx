@@ -35,7 +35,7 @@ const StyledButton = styled.button`
 const Start = ({ setNat, viewState, setViewState, natOptions }) => {
   const handleClick = () => {
     console.log("CONNECT button clicked");
-    setViewState("results");
+    setViewState("loading");
   };
   return (
     <>
