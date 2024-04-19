@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-const DisplayFriendCircle = ({ friends, loading }) => {
+const DisplayFriendCircle = ({ friends, loading, viewState }) => {
   const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -25,23 +25,25 @@ const DisplayFriendCircle = ({ friends, loading }) => {
 
   return (
     <>
-      <StyledWrapper>
-        {friends.map((friend, index) => (
-          <div key={index}>
-            <PictureFrame>
-              <img src={friend.picture.large} alt="headshot" />
-            </PictureFrame>
-            <p>
-              {friend.name.first} {friend.name.last}
-            </p>
-            <p>{friend.dob.age}</p>
+      {viewState === "results" && (
+        <StyledWrapper>
+          {friends.map((friend, index) => (
+            <div key={index}>
+              <PictureFrame>
+                <img src={friend.picture.large} alt="headshot" />
+              </PictureFrame>
+              <p>
+                {friend.name.first} {friend.name.last}
+              </p>
+              <p>{friend.dob.age}</p>
+            </div>
+          ))}
+          <div>
+            <You></You>
+            <p>You!</p>
           </div>
-        ))}
-        <div>
-          <You></You>
-          <p>You!</p>
-        </div>
-      </StyledWrapper>
+        </StyledWrapper>
+      )}
     </>
   );
 };

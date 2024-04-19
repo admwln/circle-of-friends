@@ -11,7 +11,7 @@ function App() {
   const { data: friends, loading } = useData(
     `https://randomuser.me/api?nat=${nat}&results=3`
   );
-  
+
   return (
     <>
       <Start
@@ -20,7 +20,13 @@ function App() {
         setViewState={setViewState}
       />
       {loading && <div className="spin">Loading...</div>}
-      {!loading && <DisplayFriendCircle friends={friends} loading={loading} />}
+      {!loading && (
+        <DisplayFriendCircle
+          friends={friends}
+          loading={loading}
+          viewState={viewState}
+        />
+      )}
     </>
   );
 }
