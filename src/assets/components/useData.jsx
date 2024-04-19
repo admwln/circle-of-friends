@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useData(url) {
-  const [user, setUser] = useState({});
+  const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,9 +11,9 @@ export function useData(url) {
         const response = await fetch(url)
           .then((response) => response.json())
           .then((data) => {
-            return data.results[0];
+            return data.results;
           });
-        setUser(response);
+        setData(response);
         setLoading(false);
       } catch (error) {
         console.log("damn..");
@@ -22,5 +22,5 @@ export function useData(url) {
     fetchData();
   }, [url]);
 
-  return { user, loading };
+  return { data, loading };
 }

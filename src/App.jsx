@@ -4,14 +4,10 @@ import PersonCard from "./assets/components/PersonCard";
 
 function App() {
   const [nationality, setNationality] = useState("au");
-  const { person, loading } = useData(
-    `https://randomuser.me/api/?nat=${nationality}`
+  const { friends, loading } = useData(
+    `https://randomuser.me/api?nat=${nationality}&results=3`
   );
-  return (
-    <>
-      <PersonCard person={person} loading={loading}></PersonCard>
-    </>
-  );
+  return <>{loading && <div className="spin">Loading...</div>}</>;
 }
 
 export default App;
