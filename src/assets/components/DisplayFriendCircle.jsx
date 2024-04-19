@@ -6,6 +6,7 @@ const DisplayFriendCircle = ({
   nat,
   natOptions,
 }) => {
+
   const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -37,6 +38,7 @@ const DisplayFriendCircle = ({
     <>
       {viewState === "results" && (
         <StyledWrapper>
+
           <FullWidth>
             <h1>Meet your new friends in {natOptions[nat]}!</h1>
           </FullWidth>
