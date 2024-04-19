@@ -4,6 +4,7 @@ import PersonCard from "./assets/components/PersonCard";
 import Start from "./assets/components/Start";
 import SelectNat from "./assets/components/SelectNat";
 import DisplayFriendCircle from "./assets/components/DisplayFriendCircle";
+import Loading from "./assets/components/Loading";
 
 function App() {
   const [viewState, setViewState] = useState("start");
