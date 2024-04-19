@@ -32,7 +32,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const Start = ({ setNat, viewState, setViewState }) => {
+const Start = ({ setNat, viewState, setViewState, natOptions }) => {
   const handleClick = () => {
     console.log("CONNECT button clicked");
     setViewState("results");
@@ -49,7 +49,11 @@ const Start = ({ setNat, viewState, setViewState }) => {
             circle. You will be laughing it up with your new circle of friends
             in no time!
           </p>
-          <SelectNat label="Where are you?" setNat={setNat} />
+          <SelectNat
+            label="Where are you?"
+            setNat={setNat}
+            natOptions={natOptions}
+          />
           <StyledButton onClick={handleClick}>CONNECT</StyledButton>
         </StyledStart>
       )}

@@ -13,31 +13,7 @@ const StyledLabel = styled.label`
   font-weight: bold;
 `;
 
-const SelectNat = ({ setNat, label }) => {
-  const natOptions = {
-    AU: "Australia",
-    BR: "Brazil",
-    CA: "Canada",
-    CH: "Switzerland",
-    DE: "Germany",
-    DK: "Denmark",
-    ES: "Spain",
-    FI: "Finland",
-    FR: "France",
-    GB: "Great Britain",
-    IE: "Ireland",
-    IN: "India",
-    IR: "Iran",
-    MX: "Mexico",
-    NL: "Netherlands",
-    NO: "Norway",
-    NZ: "New Zealand",
-    RS: "Serbia",
-    TR: "Turkey",
-    UA: "Ukraine",
-    US: "United States",
-  };
-
+const SelectNat = ({ setNat, label, natOptions }) => {
   const handleChange = (event) => {
     setNat(event.target.value);
     console.log(event.target.value);

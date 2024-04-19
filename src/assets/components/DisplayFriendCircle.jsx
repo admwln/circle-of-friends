@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
-const DisplayFriendCircle = ({ friends, loading }) => {
+const DisplayFriendCircle = ({
+  friends,
+  advice,
+  viewState,
+  nat,
+  natOptions,
+}) => {
   const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -23,25 +29,38 @@ const DisplayFriendCircle = ({ friends, loading }) => {
     background-color: grey;
   `;
 
+  const FullWidth = styled.div`
+    width: 100%;
+  `;
+
   return (
     <>
-      <StyledWrapper>
-        {friends.map((friend, index) => (
-          <div key={index}>
-            <PictureFrame>
-              <img src={friend.picture.large} alt="headshot" />
-            </PictureFrame>
-            <p>
-              {friend.name.first} {friend.name.last}
-            </p>
-            <p>{friend.dob.age}</p>
+      {viewState === "results" && (
+        <StyledWrapper>
+          <FullWidth>
+            <h1>Meet your new friends in {natOptions[nat]}!</h1>
+          </FullWidth>
+          {friends.results.map((friend, index) => (
+            <div key={index}>
+              <PictureFrame>
+                <img src={friend.picture.large} alt="headshot" />
+              </PictureFrame>
+              <p>
+                {friend.name.first} {friend.name.last}
+              </p>
+              <p>{friend.dob.age}</p>
+            </div>
+          ))}
+          <div>
+            <You></You>
+            <p>You!</p>
           </div>
-        ))}
-        <div>
-          <You></You>
-          <p>You!</p>
-        </div>
-      </StyledWrapper>
+          <FullWidth>
+            <p>Circle motto:</p>
+            <p>{advice.slip.advice}</p>
+          </FullWidth>
+        </StyledWrapper>
+      )}
     </>
   );
 };

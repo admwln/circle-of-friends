@@ -12,9 +12,10 @@ export function useData(url) {
         const response = await fetch(url)
           .then((response) => response.json())
           .then((data) => {
-            return data.results;
+            return data;
           });
         setData(response);
+        console.log("data fetched", data);
       } catch (error) {
         console.log("damn..");
       }
@@ -26,5 +27,5 @@ export function useData(url) {
     };
   }, [url]);
 
-  return { data, loading };
+  return { data };
 }
