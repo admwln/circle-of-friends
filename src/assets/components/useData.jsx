@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 export function useData(url) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
+    let ignore = false;
     const fetchData = async () => {
       try {
         const response = await fetch(url)
@@ -14,12 +15,15 @@ export function useData(url) {
             return data.results;
           });
         setData(response);
-        setLoading(false);
       } catch (error) {
         console.log("damn..");
       }
     };
     fetchData();
+    setLoading(false);
+    return () => {
+      ignore = true;
+    };
   }, [url]);
 
   return { data, loading };
