@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 import SelectNat from "./SelectNat";
 
+const StyledStartWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
 const StyledStart = styled.div`
   border: 1px solid #ccc;
   border-radius: 100%;
@@ -34,28 +41,29 @@ const StyledButton = styled.button`
 
 const Start = ({ setNat, viewState, setViewState, natOptions }) => {
   const handleClick = () => {
-    console.log("CONNECT button clicked");
     setViewState("loading");
   };
   return (
     <>
       {viewState === "start" && (
-        <StyledStart>
-          <h1>CIRCLE</h1>
-          <h2>Social Integration Service</h2>
-          <p>
-            <strong>Expand your social horizons.</strong> Simply select a
-            country, and we'll instantly connect you with a vibrant new social
-            circle. You will be laughing it up with your new circle of friends
-            in no time!
-          </p>
-          <SelectNat
-            label="Where are you?"
-            setNat={setNat}
-            natOptions={natOptions}
-          />
-          <StyledButton onClick={handleClick}>CONNECT</StyledButton>
-        </StyledStart>
+        <StyledStartWrapper>
+          <StyledStart>
+            <h1>CIRCLE</h1>
+            <h2>Social Integration Service</h2>
+            <p>
+              <strong>Expand your social horizons.</strong> Simply select a
+              country, and we'll instantly connect you with a vibrant new social
+              circle. You will be laughing it up with your new circle of friends
+              in no time!
+            </p>
+            <SelectNat
+              label="Where are you?"
+              setNat={setNat}
+              natOptions={natOptions}
+            />
+            <StyledButton onClick={handleClick}>CONNECT</StyledButton>
+          </StyledStart>
+        </StyledStartWrapper>
       )}
     </>
   );
