@@ -3,6 +3,7 @@ import { useData } from "./assets/components/useData";
 import Start from "./assets/components/Start";
 import DisplayFriendCircle from "./assets/components/DisplayFriendCircle";
 import Loading from "./assets/components/Loading";
+import styled from "@emotion/styled";
 
 function App() {
   const [viewState, setViewState] = useState("start");
