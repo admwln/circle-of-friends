@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   place-items: flex-start;
-  min-width: 370px;
+
   min-height: 100vh;
   padding: 1rem;
   color: white;
