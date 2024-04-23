@@ -96,14 +96,13 @@ const DisplayFriendCircle = ({
 
   const currentYear = new Date().getFullYear();
 
-  // Calculate average age of friends, and the number of years they've been friends
   const averageAge =
     friends?.results?.reduce((acc, friend) => {
       return acc + friend.dob.age;
     }, 0) / friends?.results?.length;
   const yearsAsFriends = Math.floor(averageAge / 4);
   const circleEst = currentYear - yearsAsFriends;
-  // Generate a random date
+
   const randomDate = (start, end) => {
     return new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
@@ -114,17 +113,11 @@ const DisplayFriendCircle = ({
     new Date(),
     new Date(new Date().getTime() + 14 * 24 * 60 * 60 * 1000)
   );
-  // Convert the random date to Weekday, Month Day, Year format
   let formattedDate = newRandomDate.toDateString().split(" ");
   formattedDate = `${formattedDate[0]}, ${formattedDate[1]} ${formattedDate[2]}, ${formattedDate[3]}`;
-  // Convert timestamp of newRandomDate to format hh:mm
   let formattedTime = newRandomDate.toTimeString().split(" ")[0];
-  // Remove seconds from formattedTime
   formattedTime = formattedTime.slice(0, -3);
-  // Replace minutes with 00
   formattedTime = formattedTime.slice(0, -3) + ":00";
-
-  const handleClick = () => {};
 
   return (
     <>

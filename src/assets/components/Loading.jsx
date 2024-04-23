@@ -46,7 +46,6 @@ const SmallCircle = styled.div`
 
 const Loading = ({ viewState, setViewState }) => {
   useEffect(() => {
-    // Check if the component is still mounted when the timeout completes
     let isMounted = true;
 
     if (viewState === "loading") {
@@ -54,9 +53,7 @@ const Loading = ({ viewState, setViewState }) => {
         if (isMounted) {
           setViewState("results");
         }
-      }, 3000); // 3000 milliseconds = 3 seconds
-
-      // Cleanup function to clear the timeout if the component unmounts
+      }, 3000);
       return () => {
         isMounted = false;
         clearTimeout(timeoutId);
