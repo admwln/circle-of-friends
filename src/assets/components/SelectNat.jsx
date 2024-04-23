@@ -16,7 +16,6 @@ const StyledLabel = styled.label`
 const SelectNat = ({ setNat, label, natOptions }) => {
   const handleChange = (event) => {
     setNat(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
