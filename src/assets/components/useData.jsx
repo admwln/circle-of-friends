@@ -15,7 +15,6 @@ export function useData(url) {
             return data;
           });
         setData(response);
-        console.log("data fetched", data);
       } catch (error) {
         console.log("damn..");
       }
