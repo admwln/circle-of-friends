@@ -8,16 +8,8 @@ const Confetti = () => {
     const confetti = new JSConfetti(confettiRef.current);
     confetti.addConfetti({
       confettiRadius: 5,
-      confettiNumber: 5,
-      confettiColors: [
-        "#ff3838",
-        "#ff9d00",
-        "#fffb00",
-        "#48ff00",
-        "#00ffd5",
-        "#0090ff",
-        "#7e00ff",
-      ],
+      confettiNumber: 2,
+      emojis: ["🎈"],
     });
   }, []);
 

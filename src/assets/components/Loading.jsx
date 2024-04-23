@@ -10,6 +10,14 @@ const rotate = keyframes`
         transform: rotate(360deg)
     }
     `;
+const Page = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -58,10 +66,12 @@ const Loading = ({ viewState, setViewState }) => {
   return (
     <>
       {viewState === "loading" && (
-        <Wrapper>
-          <LoadingCircle />
-          <SmallCircle />
-        </Wrapper>
+        <Page>
+          <Wrapper>
+            <LoadingCircle />
+            <SmallCircle />
+          </Wrapper>
+        </Page>
       )}
     </>
   );
