@@ -96,6 +96,9 @@ const DisplayFriendCircle = ({
 
   const currentYear = new Date().getFullYear();
 
+  //Calculates the average age of the friends and estimates the year the
+  //circle was formed
+  //Could be refcactored to a separate function
   const averageAge =
     friends?.results?.reduce((acc, friend) => {
       return acc + friend.dob.age;
@@ -103,12 +106,12 @@ const DisplayFriendCircle = ({
   const yearsAsFriends = Math.floor(averageAge / 4);
   const circleEst = currentYear - yearsAsFriends;
 
+  //Could be refactored to a separate function
   const randomDate = (start, end) => {
     return new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
     );
   };
-
   const newRandomDate = randomDate(
     new Date(),
     new Date(new Date().getTime() + 14 * 24 * 60 * 60 * 1000)
