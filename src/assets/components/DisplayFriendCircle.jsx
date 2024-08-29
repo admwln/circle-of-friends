@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Confetti from "./Confetti";
+import { getRandomDateTime } from "./lib/helperFunctions";
 const DisplayFriendCircle = ({
   friends,
   advice,
@@ -106,21 +107,7 @@ const DisplayFriendCircle = ({
   const yearsAsFriends = Math.floor(averageAge / 4);
   const circleEst = currentYear - yearsAsFriends;
 
-  //Could be refactored to a separate function
-  const randomDate = (start, end) => {
-    return new Date(
-      start.getTime() + Math.random() * (end.getTime() - start.getTime())
-    );
-  };
-  const newRandomDate = randomDate(
-    new Date(),
-    new Date(new Date().getTime() + 14 * 24 * 60 * 60 * 1000)
-  );
-  let formattedDate = newRandomDate.toDateString().split(" ");
-  formattedDate = `${formattedDate[0]}, ${formattedDate[1]} ${formattedDate[2]}, ${formattedDate[3]}`;
-  let formattedTime = newRandomDate.toTimeString().split(" ")[0];
-  formattedTime = formattedTime.slice(0, -3);
-  formattedTime = formattedTime.slice(0, -3) + ":00";
+  const { formattedDate, formattedTime } = getRandomDateTime(10);
 
   return (
     <>
