@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Confetti from "./Confetti";
-import { getRandomDateTime } from "./lib/helperFunctions";
+import { getRandomDateTime, getYearEstablished } from "./lib/helperFunctions";
 const DisplayFriendCircle = ({
   friends,
   advice,
@@ -95,19 +95,8 @@ const DisplayFriendCircle = ({
     flex-wrap: wrap;
   `;
 
-  const currentYear = new Date().getFullYear();
-
-  //Calculates the average age of the friends and estimates the year the
-  //circle was formed
-  //Could be refcactored to a separate function
-  const averageAge =
-    friends?.results?.reduce((acc, friend) => {
-      return acc + friend.dob.age;
-    }, 0) / friends?.results?.length;
-  const yearsAsFriends = Math.floor(averageAge / 4);
-  const circleEst = currentYear - yearsAsFriends;
-
   const { formattedDate, formattedTime } = getRandomDateTime(10);
+  const circleEst = getYearEstablished(friends);
 
   return (
     <>
