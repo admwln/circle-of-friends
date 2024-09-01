@@ -17,3 +17,16 @@ export function getRandomDateTime(daysFromNow) {
 
   return { formattedDate, formattedTime };
 }
+
+//Takes in the friends prop from DisplayFriendCircle Component
+//And Calculates the average age of the friends and estimates the year the
+//circle was formed
+export function getYearEstablished(friends) {
+  const currentYear = new Date().getFullYear();
+  const averageAge =
+    friends?.results?.reduce((acc, friend) => {
+      return acc + friend.dob.age;
+    }, 0) / friends?.results?.length;
+  const yearsAsFriends = Math.floor(averageAge / 4);
+  return currentYear - yearsAsFriends;
+}
