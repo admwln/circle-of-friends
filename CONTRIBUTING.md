@@ -1,6 +1,6 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository. Please ask to be assigned to the issue you wish to work upon.
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
@@ -20,6 +20,10 @@ Use the following workflow
 5. Push changes to your fork
 6. Open a PR in our repository
 7. Your changes will be merged to the project after the project owner has reviewed your code
+
+## Inactivity
+
+In the event that an assigned developer is inactive for 14 days or more, they will be unassigned. Communicating with the repository owner via the issue in question counts as activity.
 
 ### Attribution
 
